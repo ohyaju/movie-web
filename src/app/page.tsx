@@ -3,6 +3,14 @@
 import { ACCESS_TOKEN } from "./index";
 import axios from "axios";
 import { useEffect, useState } from "react";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel"
+
 
 type MovieType = {
   id: number;
@@ -34,8 +42,27 @@ export default function Home() {
     getMovies();
   }, []);
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 
-    pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
+    <div>
+    <div>
+      <Carousel>
+        <CarouselContent className="pt-3 w-full content-center">
+          ...
+          {movieList.map((movie) => {
+            return (
+
+              <CarouselItem key={movie.id}>
+                <h1>{movie.title}</h1>
+                <img className="w-full" src={`https://image.tmdb.org/t/p/original${movie.poster_path}`} />
+              </CarouselItem>
+            );
+          })}
+        </CarouselContent>
+        <CarouselPrevious />
+        <CarouselNext />
+      </Carousel>
+    </div>
+    <h1>Upcoming</h1>
+    <div className="grid grid-flow-col grid-rows-4 gap-8">
       {movieList.map((movie)=> {
         return (
           <div key={movie.id}>
@@ -46,5 +73,6 @@ export default function Home() {
       })}
 
     </div>
+    // </div>
   );
 }
