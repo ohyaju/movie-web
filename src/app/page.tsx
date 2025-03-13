@@ -10,6 +10,15 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel"
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card"
+
 
 
 type MovieType = {
@@ -52,7 +61,7 @@ export default function Home() {
 
               <CarouselItem key={movie.id}>
                 <h1>{movie.title}</h1>
-                <img className="w-full" src={`https://image.tmdb.org/t/p/original${movie.poster_path}`} />
+                <img className="w-full" src={`https://image.tmdb.org/t/p/original${movie.backdrop_path}`} />
               </CarouselItem>
             );
           })}
@@ -62,6 +71,13 @@ export default function Home() {
       </Carousel>
     </div>
     <h1>Upcoming</h1>
+    <Card>
+  <CardHeader>
+    <CardTitle></CardTitle>
+    <CardDescription>Card Description</CardDescription>
+  </CardHeader>
+  <CardContent>
+    {/* <p>Card Content</p> */}
     <div className="grid grid-flow-col grid-rows-4 gap-8">
       {movieList.map((movie)=> {
         return (
@@ -73,6 +89,12 @@ export default function Home() {
       })}
 
     </div>
+  </CardContent>
+  <CardFooter>
+    <p>Card Footer</p>
+  </CardFooter>
+</Card>
+
     // </div>
   );
 }
