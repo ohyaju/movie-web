@@ -8,7 +8,7 @@ export default function Home() {
   const [movieList, setMovieList] = useState([]);
 
 return (
-  <div>
+   <div>
     <GenreSelector/>
     <CarouselComp/>
   
