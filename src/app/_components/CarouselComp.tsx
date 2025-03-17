@@ -7,11 +7,24 @@ import {
 } from '@/components/ui/carousel';
 import React, { useEffect, useState } from 'react'
 import { instance } from '../utils/axios-instance';
+import { Play } from 'lucide-react';
+import { Button } from '@/components/ui/button';
 
 type MovieType = {
+  adult: boolean;
+  backdrop_path: string;
+  genre_ids: number[];
   id: number;
-  title: string;
+  original_language: string;
+  original_title: string;
+  overview: string;
+  popularity: number;
   poster_path: string;
+  release_date: string;
+  title: string;
+  video: boolean;
+  vote_average: number;
+  vote_count: number;
 };
 
 const CarouselComp = () => {
@@ -45,14 +58,24 @@ const CarouselComp = () => {
                 <div className="absolute inset-0 z-10 transition-all 
                 duration-300 bg-black/30" />
                 <img
-                  className="w-full object-cover object-top" src={`https://image.tmdb.org/t/p/original${movie.backdrop_path}`}  /> 
+                  className="w-full object-cover object-top" src={`https://image.tmdb.org/t/p/original${movie.backdrop_path}`} />
               </div>
               <div className="absolute w-full top-1/3 left-1/12 z-20">
-                <h1 className="text-white z-30 text-6xl font-bold">
+                <h1 className="text-white z-30 text-[36px] pl-10 font-bold">
                   {movie.title}
                 </h1>
-                <p>{movie.overview}</p>
-          
+                <p className="text-white pt-4 pr-130 pl-10">{movie.overview}</p>
+                <div className='pt-4 pl-8'>
+                  <Button className="bg-white">
+                    <Play color='black' />
+                    <span className='text-black'>Watch Trailer</span>
+                  </Button>
+                </div>
+
+
+
+
+
               </div>
             </CarouselItem>
           );
