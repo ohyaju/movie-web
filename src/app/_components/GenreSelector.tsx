@@ -1,3 +1,4 @@
+'use client'
 import {
     Select,
     SelectContent,
@@ -7,6 +8,8 @@ import {
 } from '@/components/ui/select';
 import React, { useEffect, useState } from 'react'
 import { instance } from '../utils/axios-instance';
+import { Film } from 'lucide-react';
+
 
 type GenreType = {
     id: number;
@@ -27,16 +30,23 @@ const GenreSelector = () => {
     }, []);
 
     return (
-        <Select>
-            <SelectTrigger className="w-[180px]">
-                <SelectValue placeholder="Genre" />
-            </SelectTrigger>
-            <SelectContent>
-                {genreList.map((genre) => (
-                    <SelectItem key={genre.id} value={String(genre.id)}>{genre.name}</SelectItem>
-                ))}
-            </SelectContent>
-        </Select>
+        <div className='flex gap-200'>
+            <div className='pl-5 flex gap-3'>                 
+                  <Film ></Film> <span className='text-purple-900'>Movie Z</span>
+            </div>
+
+
+            <Select>
+                <SelectTrigger className="w-[180px]">
+                    <SelectValue placeholder="Genre" />
+                </SelectTrigger>
+                <SelectContent>
+                    {genreList.map((genre) => (
+                        <SelectItem key={genre.id} value={String(genre.id)}>{genre.name}</SelectItem>
+                    ))}
+                </SelectContent>
+            </Select>
+        </div>
 
     );
 };
