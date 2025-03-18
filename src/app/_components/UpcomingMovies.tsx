@@ -37,10 +37,11 @@ const UpcomingMovies = () => {
     getMovies();
   }, []
   );
+
   return (
 
     <div className="p-8">
-      <h1 className="font-bold px-2 py-2">Upcoming</h1>
+      <h1 className="font-semibold not-italic px-2 py-2 px-(--spacing-5)  w-full gap-(--spacing-5) flex justify-between text-2xl leading-8">Upcoming</h1>
       <div className="grid grid-cols-5 justify-items-center justify-self-center w-fit min-h-screen gap-8">
         {movieList.map((movie: MovieType) => {
           return <Card key={movie.id} className="w-[230px]">
@@ -62,5 +63,5 @@ const UpcomingMovies = () => {
       </div>
     </div>
   )
-}
+}       
 export default UpcomingMovies
