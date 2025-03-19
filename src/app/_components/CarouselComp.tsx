@@ -57,9 +57,10 @@ const CarouselComp = () => {
               >
                 <div className="relative">
                   <div className="absolute inset-0 z-10 transition-all 
-                duration-300 bg-black/30" />
+                duration-300" />
                   <img
-                    className="w-full object-cover object-top" src={`https://image.tmdb.org/t/p/original${movie.backdrop_path}`} />
+                    className="w-full h-[800px] pl-[150px] pr-[150px] self-center justify-center object-cover object-top" src={`https://image.tmdb.org/t/p/original${movie.backdrop_path}`} 
+                    />
                 </div>
 
 
@@ -67,7 +68,7 @@ const CarouselComp = () => {
                   <h1 className="text-white z-30 text-[36px] pl-10 font-bold">
                     {movie.title}
                   </h1>
-                  <p className="text-white pt-4 pr-130 pl-10">{movie.overview}</p>
+                  <p className="text-white pt-4 pr-20 pl-10">{movie.overview}</p>
                   <div className='pt-4 pl-8'>
                   <Button className="bg-white">
                     <Play color='black' />

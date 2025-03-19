@@ -38,13 +38,14 @@ const PopularMovies = () => {
     return(
         
         <div className="p-8">
-      <h1 className="font-bold px-5 py-5">Popular Movies</h1>
-      <div className="grid grid-cols-5 items-center justify-items-center justify-self-center w-fit gap-8 ">
+      <h1 className="font-semibold not-italic px-2 py-2 px-(--spacing-5)  w-full gap-(--spacing-5) flex justify-between text-2xl leading-8">
+        Popular Movies</h1>
+      <div className="grid grid-cols-5 items-center justify-items-center justify-self-center w-fit min-h-screen gap-30 ">
           {movieList.map((movie: MovieType) => {
-            return <Card key={movie.id} className=" w-[230px]">
-              <CardContent className="p-0 h-[340px]">
+            return <Card key={movie.id} className="p-0 gap-0 w-[280px] bg-gray-100">
+              <CardContent className="p-0 h-[430px]">
                 <img
-                  className="rounded-t-xl"
+                  className="rounded-t-xl w-[280px] h-[410px]"
                   src={`https://image.tmdb.org/t/p/original${movie.poster_path}`}
                 />
               </CardContent>
